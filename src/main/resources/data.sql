@@ -1,9 +1,3 @@
-DROP TABLE IF EXISTS RECIPE;
-
-CREATE TABLE RECIPE (
-  id         INT default hibernate_sequence.nextval PRIMARY KEY,
-  title  VARCHAR(250) NOT NULL,
-  description  VARCHAR(20000) NOT NULL);
-
-INSERT INTO RECIPE (title, description) VALUES ('Placki', 'zrob placki sadfasdfasdf     asdfasdf     asdfasdfasdf');
-INSERT INTO RECIPE (title, description) VALUES ('Ziemniaki', 'obierz ziemniaki sadfasdfasdf     asdfasdfasdfasdfasdf');
+insert into CATEGORY (id, description) values (1, 'zupy' );
+insert into IMAGE  (id, IMAGE_BLOB ) values (1, 'blob');
+insert into Tag (id, tag) values (1, 'zupy');
