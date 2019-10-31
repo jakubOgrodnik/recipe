@@ -24,8 +24,6 @@ public class Recipe {
     @OneToMany
     private Set<Ingredient> ingredientSet;
 
-    @OneToMany
-    private Set<Tag> tags;
 
     //@Lob
     @OneToMany
