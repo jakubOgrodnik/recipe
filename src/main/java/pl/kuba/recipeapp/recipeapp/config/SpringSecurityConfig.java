@@ -23,23 +23,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
+                .headers().frameOptions().disable()
+                .and()
                 .authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/anonymous*").anonymous()
-                .antMatchers("/login*", "/h2-console/**").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/login*", "/*", "/h2").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login.html")
-                .loginProcessingUrl("/perform_login")
-                .defaultSuccessUrl("/homepage.html", true)
-                //.failureUrl("/login.html?error=true")
-                //.failureHandler(authenticationFailureHandler())
-                .and()
-                .logout()
-                .logoutUrl("/perform_logout")
-                .deleteCookies("JSESSIONID");
-                //.logoutSuccessHandler(logoutSuccessHandler());
+                .defaultSuccessUrl("/homepage.html", true);
     }
 
     @Bean
