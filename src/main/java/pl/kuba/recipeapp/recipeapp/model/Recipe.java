@@ -25,7 +25,7 @@ public class Recipe {
     private Set<Ingredient> ingredientSet;
 
 
-    //@Lob
+    @Lob
     @OneToMany
     private List<Image> imageList;
 
